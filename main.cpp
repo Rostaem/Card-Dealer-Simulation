@@ -1,25 +1,46 @@
 #include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+#include <iomanip>
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-int main() {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the
-    // <b>lang</b> variable name to see how CLion can help you rename it.
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+using namespace std;
 
-    for (int i = 1; i <= 5; i++) {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code.
-        // We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/>
-        // breakpoint for you, but you can always add more by pressing
-        // <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
-    }
+const int WIDTH = 40;
 
-    return 0;
+string getRandomCard() {
+    vector<string> suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+    vector<string> ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+
+    string suit = suits[rand() % suits.size()];
+    string rank = ranks[rand() % ranks.size()];
+
+    return rank + " of " + suit;
 }
 
-// TIP See CLion help at <a
-// href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
-//  Also, you can try interactive lessons for CLion by selecting
-//  'Help | Learn IDE Features' from the main menu.
+void displayCard(const string &card) {
+    string label = "Casino Card:";
+    int labelLength = label.length();
+    int cardLength = card.length();
+
+    int Fill = WIDTH - labelLength - cardLength - 2;
+    string fill(Fill, '-');
+
+    cout << string(WIDTH, '*') << endl;
+    cout << endl;
+
+    int padding = (WIDTH - cardLength) / 2;
+    cout << setw(padding + cardLength) << card << endl;
+
+    cout << endl;
+    cout << label << " " << fill << " " << card << endl;
+
+    cout << string(WIDTH, '*') << endl;
+}
+
+int main() {
+    srand(time(0));
+    string card = getRandomCard();
+    displayCard(card);
+    return 0;
+}
