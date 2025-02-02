@@ -1,3 +1,0 @@
-/Users/hania/CLionProjects/Card_Dealer_Simulation/cmake-build-debug/CMakeFiles/Card_Dealer_Simulation.dir
-/Users/hania/CLionProjects/Card_Dealer_Simulation/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/hania/CLionProjects/Card_Dealer_Simulation/cmake-build-debug/CMakeFiles/rebuild_cache.dir
